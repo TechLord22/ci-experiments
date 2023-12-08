@@ -5,6 +5,13 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'src/main/java'
+      - 'src/test'
+      - 'gradle/**'
+      - '**.gradle'
+      - 'gradle.properties'
+      - 'gradlew**'
   pull_request:
 
 concurrency:
