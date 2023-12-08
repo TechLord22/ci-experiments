@@ -15,11 +15,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup Build
-        uses: ./.github/actions/build_setup
-
       - name: Checkout Repository
         uses: actions/checkout@v4
+
+      - name: Setup Build
+        uses: ./.github/actions/build_setup
 
       # - name: Set up JDK 17
       #   uses: actions/setup-java@v4
