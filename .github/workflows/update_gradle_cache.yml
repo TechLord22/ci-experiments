@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: gradle-cache-${{ github.head_ref || github.ref }}
+  group: gradle-cache-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
