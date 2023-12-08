@@ -3,7 +3,7 @@ name: Java Test and Formatting
 on:
   workflow_run:
     workflows:
-      - "Gradle Cache Update"
+      - Gradle Cache Update
     branches:
       - master
     types:
