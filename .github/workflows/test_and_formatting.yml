@@ -1,9 +1,13 @@
-name: Java Build and Test
+name: Java Test and Formatting
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - "Gradle Cache Update"
     branches:
-    - master
+      - master
+    types:
+      - completed
   pull_request:
 
 concurrency:
@@ -11,7 +15,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  Test:
+  test:
+    name: Test
     runs-on: ubuntu-latest
 
     steps:
@@ -24,7 +29,8 @@ jobs:
       - name: Run Tests with Gradle
         run: ./gradlew test --warning-mode all --build-cache
 
-  Formatting:
+  formatting:
+    name: Formatting
     runs-on: ubuntu-latest
 
     steps:

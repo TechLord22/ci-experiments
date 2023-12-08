@@ -1,6 +1,12 @@
 name: Build Setup
 description: Setup for standard Java builds
 
+inputs:
+  update-cache:
+    description: If cache should be updated
+    required: false
+    default: false
+
 runs:
   using: "composite"
 
@@ -15,11 +21,11 @@ runs:
   - name: Setup Gradle
     uses: gradle/gradle-build-action@v2
     with:
-      cache-read-only: ${{ github.ref != 'refs/heads/master' }}
+      cache-write-only: ${{ inputs.update-cache }}
       generate-job-summary: false
       gradle-home-cache-includes: |
         caches
         caches/retro_futura_gradle
         notifications
         jdks
-        
+        wrapper
