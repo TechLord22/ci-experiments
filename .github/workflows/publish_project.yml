@@ -8,7 +8,7 @@ on:
 
 env:
   # link to the changelog with a format code for the version
-  CHANGELOG_LOCATION: "Changelog is available [here](https://github.com/${{github.repository}}/releases/tag/${{github.ref_name}})"
+  CHANGELOG_LOCATION: "Changelog is available [here](https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }})"
   # type of release
   RELEASE_TYPE: "beta"
 
@@ -43,16 +43,16 @@ jobs:
 
       - name: Publish to Curseforge
         env:
-          CURSEFORGE_API_KEY: "${{secrets.CURSEFORGE_API_KEY}}"
-          CURSEFORGE_PROJECT_ID: "${{secrets.CURSEFORGE_PROJECT_ID}}"
-          CHANGELOG_LOCATION: "${{env.CHANGELOG_LOCATION}}"
-          RELEASE_TYPE: "${{env.RELEASE_TYPE}}"
+          CURSEFORGE_API_KEY: "${{ secrets.CURSEFORGE_API_KEY }}"
+          CURSEFORGE_PROJECT_ID: "${{ secrets.CURSEFORGE_PROJECT_ID }}"
+          CHANGELOG_LOCATION: "${{ env.CHANGELOG_LOCATION }}"
+          RELEASE_TYPE: "${{ env.RELEASE_TYPE }}"
         run: ./gradlew curseforge --warning-mode all --build-cache
 
       - name: Publish to Modrinth
         env:
-          MODRINTH_API_KEY: "${{secrets.MODRINTH_API_KEY}}"
-          MODRINTH_PROJECT_ID: "${{secrets.MODRINTH_PROJECT_ID}}"
-          CHANGELOG_LOCATION: "${{env.CHANGELOG_LOCATION}}"
-          RELEASE_TYPE: "${{env.RELEASE_TYPE}}"
+          MODRINTH_API_KEY: "${{ secrets.MODRINTH_API_KEY }}"
+          MODRINTH_PROJECT_ID: "${{ secrets.MODRINTH_PROJECT_ID }}"
+          CHANGELOG_LOCATION: "${{ env.CHANGELOG_LOCATION }}"
+          RELEASE_TYPE: "${{ env.RELEASE_TYPE }}"
         run: ./gradlew modrinth --warning-mode all --build-cache
