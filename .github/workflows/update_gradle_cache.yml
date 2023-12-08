@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Setup Java Environment
-        uses: TechLord22/ci-experiments/.github/workflows/setup_java_environment.yml
+        uses: TechLord22/ci-experiments/.github/workflows/setup_java_environment.yml@master
         with:
           update-cache: true
 
