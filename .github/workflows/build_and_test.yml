@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - id: Setup Build
+      - name: Setup Build
         uses: ./.github/actions/build_setup
 
       - name: Checkout Repository
