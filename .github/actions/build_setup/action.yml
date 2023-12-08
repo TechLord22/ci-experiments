@@ -17,3 +17,9 @@ runs:
     with:
       cache-read-only: ${{ github.ref != 'refs/heads/master' }}
       generate-job-summary: false
+      gradle-home-cache-includes: |
+        caches
+        caches/retro_futura_gradle
+        notifications
+        jdks
+        

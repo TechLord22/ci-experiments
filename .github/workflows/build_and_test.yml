@@ -10,6 +10,9 @@ concurrency:
   group: pr-testing-${{ github.head_ref }}
   cancel-in-progress: true
 
+env:
+  GRADLE_BUILD_ACTION_CACHE_DEBUG_ENABLED: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -21,39 +24,18 @@ jobs:
       - name: Setup Build
         uses: ./.github/actions/build_setup
 
-      # - name: Set up JDK 17
-      #   uses: actions/setup-java@v4
-      #   with:
-      #     distribution: zulu
-      #     java-version: 17
-
-      # - name: Setup Gradle
-      #   uses: gradle/gradle-build-action@v2
-      #   with:
-      #     cache-read-only: ${{ github.ref != 'refs/heads/master' }}
-      #     generate-job-summary: false
-
       - name: Run Tests with Gradle
         run: ./gradlew test --warning-mode all --build-cache
 
-  # formatting:
-  #   runs-on: ubuntu-latest
+  formatting:
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     - name: Checkout Repository
-  #       uses: actions/checkout@v4
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-  #     - name: Set up JDK 17
-  #       uses: actions/setup-java@v4
-  #       with:
-  #         distribution: zulu
-  #         java-version: 17
+      - name: Setup Build
+        uses: ./.github/actions/build_setup
 
-  #     - name: Setup Gradle
-  #       uses: gradle/gradle-build-action@v2
-  #       with:
-  #         cache-read-only: ${{ github.ref != 'refs/heads/master' }}
-  #         generate-job-summary: false
-
-  #     - name: Run Spotless Formatting with Gradle
-  #       run: ./gradlew spotlessCheck --warning-mode all --build-cache
+      - name: Run Spotless Formatting with Gradle
+        run: ./gradlew spotlessCheck --warning-mode all --build-cache
