@@ -1,0 +1,14 @@
+[{
+    "modid": "${modid}",
+    "name": "${modname}",
+    "description": "A test mod for Minecraft 1.12.2 with Forge",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "logoFile": "",
+    "url": "",
+    "authorList": [
+        "TechLord22"
+    ],
+    "credits": "TechLord22",
+    "dependencies": []
+}]
