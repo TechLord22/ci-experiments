@@ -27,7 +27,7 @@ jobs:
         with:
           mode: exactly
           count: 0
-          labels: "status: do not merge"
+          labels: 'status: do not merge'
           exit_type: failure
 
       - name: Check for Required Labels # require at least one of these labels
@@ -35,5 +35,5 @@ jobs:
         with:
           mode: minimum
           count: 1
-          labels: "type: feature, type: bug, type: refactor, type: translation, ignore changelog"
+          labels: 'type: feature, type: bug, type: refactor, type: translation, ignore changelog'
           exit_type: failure

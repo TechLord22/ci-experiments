@@ -10,7 +10,7 @@ env:
   # link to the changelog with a format code for the version
   CHANGELOG_LOCATION: "Changelog is available [here](https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }})"
   # type of release
-  RELEASE_TYPE: "beta"
+  RELEASE_TYPE: 'beta'
 
 concurrency:
   group: publish-${{ github.head_ref || github.ref }}
@@ -25,11 +25,8 @@ jobs:
       contents: write # needed to create GitHub releases
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Setup Build
-        uses: ./.github/actions/build_setup
+      - name: Setup Java Environment
+        uses: TechLord22/ci-experiments/.github/workflows/setup_java_environment.yml
 
       - name: Build Project
         run: ./gradlew build --warning-mode all --build-cache

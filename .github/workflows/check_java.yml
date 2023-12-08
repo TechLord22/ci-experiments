@@ -19,11 +19,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Setup Build
-        uses: ./.github/actions/build_setup
+      - name: Setup Java Environment
+        uses: TechLord22/ci-experiments/.github/workflows/setup_java_environment.yml
 
       - name: Run Tests with Gradle
         run: ./gradlew test --warning-mode all --build-cache

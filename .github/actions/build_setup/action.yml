@@ -8,7 +8,7 @@ inputs:
     default: false
 
 runs:
-  using: "composite"
+  using: 'composite'
 
   steps:
 

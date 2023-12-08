@@ -4,7 +4,7 @@ name: Update Buildscript
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *" # "min hr day month year", so run once per day
+    - cron: '0 0 * * *' # "min hr day month year", so run once per day
 
 jobs:
   buildscript-update:
@@ -18,11 +18,8 @@ jobs:
       pull-requests: write
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Setup Build
-        uses: ./.github/actions/build_setup
+      - name: Setup Java Environment
+        uses: TechLord22/ci-experiments/.github/workflows/setup_java_environment.yml
 
       - name: Run Buildscript Updater
         run: ./gradlew updateBuildScript --warning-mode all --build-cache
