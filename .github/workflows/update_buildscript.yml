@@ -18,8 +18,11 @@ jobs:
       pull-requests: write
 
     steps:
-      - name: Setup Java Environment
-        uses: TechLord22/ci-experiments/.github/workflows/setup_java_environment.yml@master
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Build
+        uses: ./.github/actions/build_setup
 
       - name: Run Buildscript Updater
         run: ./gradlew updateBuildScript --warning-mode all --build-cache

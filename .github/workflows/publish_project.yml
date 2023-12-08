@@ -25,8 +25,11 @@ jobs:
       contents: write # needed to create GitHub releases
 
     steps:
-      - name: Setup Java Environment
-        uses: TechLord22/ci-experiments/.github/workflows/setup_java_environment.yml@master
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Build
+        uses: ./.github/actions/build_setup
 
       - name: Build Project
         run: ./gradlew build --warning-mode all --build-cache

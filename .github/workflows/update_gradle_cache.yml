@@ -18,8 +18,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup Java Environment
-        uses: TechLord22/ci-experiments/.github/workflows/setup_java_environment.yml@master
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Build
+        uses: ./.github/actions/build_setup
         with:
           update-cache: true
 

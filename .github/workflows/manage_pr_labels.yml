@@ -4,10 +4,10 @@ name: Pull Request Labels
 on:
   pull_request:
     types:
-    - opened
-    - labeled
-    - unlabeled
-    - synchronize
+      - opened
+      - labeled
+      - unlabeled
+      - synchronize
 
 # if a second commit is pushed quickly after the first, cancel the first one's build
 concurrency:
