@@ -1,3 +1,4 @@
+# Updates the Gradle Cache when necessary
 name: Update Gradle Cache
 
 on:
@@ -12,7 +13,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: test-format-${{ github.head_ref || github.ref }}
+  group: gradle-cache-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 jobs:

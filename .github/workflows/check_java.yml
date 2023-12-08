@@ -1,13 +1,21 @@
-name: Java Test and Formatting
+# Runs tests and formatting requirements
+name: Java Checks
 
 on:
   push:
     branches:
       - master
+    paths:
+      - 'src/main/java'
+      - 'src/test'
+      - 'gradle/**'
+      - '**.gradle'
+      - 'gradle.properties'
+      - 'gradlew**'
   pull_request:
 
 concurrency:
-  group: test-format-${{ github.head_ref || github.ref }}
+  group: checks-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 jobs:
