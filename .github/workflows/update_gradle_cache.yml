@@ -5,11 +5,7 @@ on:
   push:
     branches:
       - master
-    paths:
-      - 'gradle/**'
-      - '**.gradle'
-      - 'gradle.properties'
-      - 'gradlew**'
+    paths: ['gradle/**', '**.gradle', 'gradle.properties', 'gradlew**']
   workflow_dispatch:
 
 concurrency:

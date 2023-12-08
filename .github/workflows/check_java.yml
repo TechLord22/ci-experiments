@@ -5,14 +5,9 @@ on:
   push:
     branches:
       - master
-    paths:
-      - 'src/main/java'
-      - 'src/test'
-      - 'gradle/**'
-      - '**.gradle'
-      - 'gradle.properties'
-      - 'gradlew**'
+    paths: ['src/main/java', 'src/test', 'gradle/**', '**.gradle', 'gradle.properties', 'gradlew**']
   pull_request:
+    paths: ['src/main/java', 'src/test', 'gradle/**', '**.gradle', 'gradle.properties', 'gradlew**']
 
 concurrency:
   group: checks-${{ github.head_ref || github.ref }}

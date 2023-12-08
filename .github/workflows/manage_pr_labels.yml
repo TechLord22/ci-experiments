@@ -22,7 +22,7 @@ jobs:
       pull-requests: read # needed to utilize required-labels
 
     steps:
-      - name: Merge-Blocking Labels # blocks merge if present
+      - name: Check for Merge-Blocking Labels # blocks merge if present
         uses: mheap/github-action-required-labels@v5
         with:
           mode: exactly
@@ -30,7 +30,7 @@ jobs:
           labels: "status: do not merge"
           exit_type: failure
 
-      - name: Required Changelog Labels # require at least one of these labels
+      - name: Check for Required Labels # require at least one of these labels
         uses: mheap/github-action-required-labels@v5
         with:
           mode: minimum
