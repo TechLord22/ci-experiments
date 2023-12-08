@@ -1,13 +1,9 @@
 name: Java Test and Formatting
 
 on:
-  workflow_run:
-    workflows:
-      - Gradle Cache Update
+  push:
     branches:
       - master
-    types:
-      - completed
   pull_request:
 
 concurrency:
