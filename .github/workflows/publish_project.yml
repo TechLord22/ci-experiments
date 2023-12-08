@@ -1,3 +1,4 @@
+# Publishes the project to GitHub Releases, CurseForge, and Modrinth
 name: Publish Project
 
 on:
@@ -10,6 +11,10 @@ env:
   CHANGELOG_LOCATION: "Changelog is available [here](https://github.com/${{github.repository}}/releases/tag/${{github.ref_name}})"
   # type of release
   RELEASE_TYPE: "beta"
+
+concurrency:
+  group: publish-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   publish:

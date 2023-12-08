@@ -1,4 +1,5 @@
-name: Java Test and Formatting
+# Runs tests and formatting requirements
+name: Java Checks
 
 on:
   push:
@@ -7,7 +8,7 @@ on:
   pull_request:
 
 concurrency:
-  group: test-format-${{ github.head_ref || github.ref }}
+  group: checks-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 jobs:
