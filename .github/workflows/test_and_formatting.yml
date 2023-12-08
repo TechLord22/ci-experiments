@@ -7,14 +7,11 @@ on:
   pull_request:
 
 concurrency:
-  group: pr-testing-${{ github.head_ref }}
+  group: test-format-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
-env:
-  GRADLE_BUILD_ACTION_CACHE_DEBUG_ENABLED: true
-
 jobs:
-  test:
+  Test:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,7 +24,7 @@ jobs:
       - name: Run Tests with Gradle
         run: ./gradlew test --warning-mode all --build-cache
 
-  formatting:
+  Formatting:
     runs-on: ubuntu-latest
 
     steps:
